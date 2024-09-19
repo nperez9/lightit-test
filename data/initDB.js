@@ -6,7 +6,7 @@ const dummyPatients = [
     name: 'Niclas Fulkrug',
     email: 'niclasfulkrug@gmail.com',
     phone: '+32 12345678',
-    document_image: '/images/documets/fullkrug.png',
+    document_image: '/images/documents/fullkrug.png',
   },
 ];
 

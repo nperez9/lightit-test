@@ -9,6 +9,7 @@ import { PatientFormState, savePatientAction } from '@/server-actions/patient-ac
 export interface PatientFormProps {}
 
 export const PatientForm: React.FC<PatientFormProps> = () => {
+  // TODO: Run client side validation
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');

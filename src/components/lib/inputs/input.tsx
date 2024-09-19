@@ -31,8 +31,8 @@ export const Input: React.FC<InputProps> = ({
 
   return (
     <div className="mb-5">
-      <div className="flex flex-col md:flex-row gap-2 align-middle justify-center items-center">
-        <label htmlFor={name} className="block text-lg font-medium text-gray-900 dark:text-white">
+      <div className="flex flex-col md:flex-row gap-2 md:gap-0 align-middle justify-center items-center">
+        <label htmlFor={name} className="block text-lg font-medium text-gray-900 dark:text-white md:w-1/4 text-left">
           {label}
         </label>
         <input

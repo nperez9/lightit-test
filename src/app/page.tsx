@@ -13,7 +13,7 @@ export default function Home() {
           Light.it patient manager is a modern and easy-to-use patient management system for healthcare professionals.
           It helps you to manage your patients and appointments in a simple and efficient way.
         </p>
-        <div className="flex flex-col md:flex-row m-10 lg:mb-16 gap-6">
+        <div className="flex flex-col md:flex-row m-10 lg:mb-16 gap-12">
           <LinkButton href="/create" className="md:w-1/2">
             <PlusIcon className="mr-2" width={24} height={24} /> Add patient
           </LinkButton>
