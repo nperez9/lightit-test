@@ -7,14 +7,13 @@ export interface AddButtonProps {
   className?: string;
 }
 
-export const FixedButton: React.FC<AddButtonProps> = ({ href, children, className }) => {
+export const FixedButton: React.FC<AddButtonProps> = ({ href, children, className = '' }) => {
   return (
     <Link
       href={href}
       className={`border border-gray-700 hover:bg-gray-700 focus:ring-gray-800
-       fixed w-12 h-12 rounded-full transition-all bottom-7 right-7 flex items-center justify-center 
-       shadow-sm shadow-gray-700 hover:scale-125
-       ${className}`}
+       fixed w-12 h-12 rounded-full transition-all right-7 flex items-center justify-center 
+       shadow-sm shadow-gray-700 hover:scale-125 ${className}`}
     >
       {children}
     </Link>

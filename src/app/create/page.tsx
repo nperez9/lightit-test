@@ -15,11 +15,11 @@ export default function CreatePatient() {
       <main>
         <PatientForm />
       </main>
-      <FixedButton href="/" className="hover:rotate-0 bottom-24">
+      <FixedButton href="/" className="bottom-24">
         <HomeIcon width={24} height={24} />
       </FixedButton>
-      <FixedButton href="/patients">
-        <ListBulletIcon width={24} height={24} className="hover:rotate-0 bottom-24" />
+      <FixedButton href="/patients" className="bottom-7">
+        <ListBulletIcon width={24} height={24} />
       </FixedButton>
     </section>
   );

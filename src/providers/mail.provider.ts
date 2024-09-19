@@ -2,11 +2,13 @@
 import { MailerSend, EmailParams, Sender, Recipient } from 'mailersend';
 import { APIResponse } from 'mailersend/lib/services/request.service';
 
+import { mailConfig } from '@/config';
+
 const mailerSend = new MailerSend({
   apiKey: process.env.MAILERSEND_API_KEY as string,
 });
 
-const sentFrom = new Sender('nicolasperez95.a@gmail.com', 'Lightit Team');
+const sentFrom = new Sender(mailConfig.sender.email, mailConfig.sender.name);
 
 export async function sendRegistrationEmail(email: string, name: string): Promise<APIResponse> {
   const recipients = [new Recipient(email, name)];

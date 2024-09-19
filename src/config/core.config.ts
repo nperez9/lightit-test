@@ -7,3 +7,10 @@ export const coreConfig = {
       'Light.it patient manager is a modern and easy-to-use patient management system for healthcare professionals.',
   },
 };
+
+export const mailConfig = {
+  sender: {
+    email: 'lightit@gmail.com',
+    name: 'LightIt Team',
+  },
+};

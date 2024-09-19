@@ -19,7 +19,7 @@ export default async function PatientList() {
       <FixedButton href="/" className="bottom-24">
         <HomeIcon width={24} height={24} />
       </FixedButton>
-      <FixedButton href="/create" className="hover:rotate-180">
+      <FixedButton href="/create" className="hover:rotate-180 bottom-7">
         <PlusIcon width={24} height={24} />
       </FixedButton>
     </section>
