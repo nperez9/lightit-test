@@ -44,7 +44,7 @@ export async function savePatientAction(prevState: PatientFormState, formData: F
   }
 
   await SavePatient(patient);
-  NotifyEmail(patient.email);
+  NotifyEmail(patient.email, patient.name);
   // TODO: Implement SMS notification
   revalidatePath('/patients');
   return redirect('/patients');

@@ -8,6 +8,7 @@ import { Patient, PatientDB } from '@/types/patient';
 const db = new sql(DATABASE_NAME);
 
 export async function GetPatients(): Promise<PatientDB[]> {
+  // This is to see the loader, i put some effort on it
   await new Promise((resolve) => setTimeout(resolve, 1000));
   return db.prepare('SELECT * FROM Patients ORDER BY id DESC').all() as PatientDB[];
 }
@@ -32,12 +33,14 @@ export async function SavePatient(patient: Patient) {
 
   const formattedPatient = { ...patient, document_image: savedImage };
 
-  db.prepare(
-    `
+  return db
+    .prepare(
+      `
      INSERT INTO Patients
        (name, email, phone, document_image)
      VALUES
        (@name, @email, @phone, @document_image)
      `,
-  ).run(formattedPatient);
+    )
+    .run(formattedPatient);
 }
