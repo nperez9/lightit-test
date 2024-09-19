@@ -21,8 +21,11 @@ export const PatientForm: React.FC<PatientFormProps> = () => {
   const { pending } = useFormStatus();
 
   return (
-    <form className="max-w-md m-auto" action={formAction}>
-      <div>
+    <form
+      className="max-w-lg m-auto mb-4 border border-gray-700 shadow shadow-gray-700 p-6 rounded-xl"
+      action={formAction}
+    >
+      <div className="flex flex-col gap-2">
         <Input
           label="Name"
           setValue={setName}

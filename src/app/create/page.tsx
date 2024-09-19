@@ -15,7 +15,6 @@ export default function CreatePatient() {
       <main>
         <PatientForm />
       </main>
-
       <FixedButton href="/" className="hover:rotate-0 bottom-24">
         <HomeIcon width={24} height={24} />
       </FixedButton>
