@@ -1,12 +1,15 @@
 'use client';
 import React, { useRef, useState } from 'react';
+import { Button } from '@/components/lib';
+import { error } from 'console';
 
 export interface ImagePickerProps {
   label: string;
   name: string;
+  errorMessage?: string;
 }
 
-export const ImagePicker: React.FC<ImagePickerProps> = ({ label, name }) => {
+export const ImagePicker: React.FC<ImagePickerProps> = ({ label, name, errorMessage }) => {
   const [pickedImage, setImagePicked] = useState<string | null>(null);
   const imageInputRef = useRef<HTMLInputElement>(null);
 
@@ -30,7 +33,7 @@ export const ImagePicker: React.FC<ImagePickerProps> = ({ label, name }) => {
   }
 
   return (
-    <div>
+    <div className="flex flex-col gap-6 m-4 items-center align-middle">
       <label className="hidden" htmlFor={name}>
         {label}
       </label>
@@ -44,10 +47,15 @@ export const ImagePicker: React.FC<ImagePickerProps> = ({ label, name }) => {
         onChange={handleImageChange}
         required
       />
-      {pickedImage ? <img src={pickedImage} alt="picked image" /> : <p>No image picked</p>}
-      <button type="button" className="block" onClick={hadlePickClick}>
+      {pickedImage ? (
+        <img className="rounded w-52 h-52" src={pickedImage} alt="picked image" width={300} height={300} />
+      ) : (
+        <p>No image picked</p>
+      )}
+      <Button type="button" className="block" onclick={hadlePickClick}>
         Pick an image
-      </button>
+      </Button>
+      {errorMessage && <span>{errorMessage}</span>}
     </div>
   );
 };

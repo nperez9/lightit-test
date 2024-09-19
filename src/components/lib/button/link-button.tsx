@@ -18,7 +18,8 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
     <Link
       href={href}
       target={target}
-      className={`inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center rounded-lg border focus:ring-4 border-gray-700 hover:bg-gray-700 focus:ring-gray-800 hover:transition-all ${className}`}
+      className={`inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center rounded-lg border focus:ring-4 
+        border-gray-700 hover:bg-gray-700 focus:ring-gray-800 hover:scale-110 hover:transition-all ${className}`}
       role={type}
     >
       {children}
