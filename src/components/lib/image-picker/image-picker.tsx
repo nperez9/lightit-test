@@ -1,7 +1,6 @@
 'use client';
 import React, { useRef, useState } from 'react';
-import { Button } from '@/components/lib';
-import { error } from 'console';
+import { Button, ErrorText } from '@/components/lib';
 
 export interface ImagePickerProps {
   label: string;
@@ -45,7 +44,6 @@ export const ImagePicker: React.FC<ImagePickerProps> = ({ label, name, errorMess
         accept="image/*"
         ref={imageInputRef}
         onChange={handleImageChange}
-        required
       />
       {pickedImage ? (
         <img className="rounded w-52 h-52" src={pickedImage} alt="picked image" width={300} height={300} />
@@ -55,7 +53,7 @@ export const ImagePicker: React.FC<ImagePickerProps> = ({ label, name, errorMess
       <Button type="button" className="block" onclick={hadlePickClick}>
         Pick an image
       </Button>
-      {errorMessage && <span>{errorMessage}</span>}
+      {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 
 import { SavePatient } from '@/services/patients.service';
 import { Patient } from '@/types/patient';
-import { isValidText, isValidImage } from '@/utils/validations';
+import { isValidText, isValidImage, isOnlyText, isGmail } from '@/utils/validations';
 import { NotifyEmail } from '@/services/notifications.service';
 
 export interface PatientFormState {
@@ -24,15 +24,15 @@ export async function savePatientAction(prevState: PatientFormState, formData: F
   };
 
   const formState: PatientFormState = {};
-  if (!isValidText(patient.name)) {
-    formState.name = 'Name is required';
+  if (!isOnlyText(patient.name)) {
+    formState.name = 'Name cannot be empty and must cotain only letters';
   }
-  if (!isValidText(patient.email)) {
-    formState.email = 'Email is required and must be a gmail account';
+  if (!isGmail(patient.email)) {
+    formState.email = 'Email must be a gmail account';
   }
 
   if (!isValidText(patient.phone)) {
-    formState.phone = 'Phone is requried';
+    formState.phone = 'Phone cannot be empty';
   }
 
   if (!isValidImage(patient.document_image)) {

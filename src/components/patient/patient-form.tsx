@@ -34,7 +34,6 @@ export const PatientForm: React.FC<PatientFormProps> = () => {
           name="name"
           placeholder="Rango Doe"
           errorMessage={formState.name}
-          required
         />
         <Input
           label="Email"
@@ -44,7 +43,6 @@ export const PatientForm: React.FC<PatientFormProps> = () => {
           name="email"
           placeholder="testmail@gmail.com"
           errorMessage={formState.email}
-          required
         />
         <Input
           label="Phone"
@@ -54,9 +52,8 @@ export const PatientForm: React.FC<PatientFormProps> = () => {
           name="phone"
           placeholder="+132 2233344"
           errorMessage={formState.phone}
-          required
         />
-        <ImagePicker label="choose an Image" name="document_image" errorMessage={formState.document_image} />
+        <ImagePicker label="Choose an Image (max 5MB)" name="document_image" errorMessage={formState.document_image} />
         <Button type="submit" disabled={pending}>
           {pending ? 'Saving...' : 'Save'}
         </Button>
