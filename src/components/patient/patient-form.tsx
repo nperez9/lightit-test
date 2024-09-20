@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
 
 import { ImagePicker } from '@/components/lib/image-picker/image-picker';
-import { Button, Input } from '@/components/lib';
+import { Button, ErrorText, Input } from '@/components/lib';
 import { PatientFormState, savePatientAction } from '@/server-actions/patient-actions';
+import { Notification } from '../lib/notifications';
 
 export interface PatientFormProps {}
 
@@ -59,6 +60,7 @@ export const PatientForm: React.FC<PatientFormProps> = () => {
           {pending ? 'Saving...' : 'Save'}
         </Button>
       </div>
+      {formState.formError && !formState.success && <ErrorText>{formState.formError}</ErrorText>}
     </form>
   );
 };

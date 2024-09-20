@@ -10,6 +10,10 @@ export function isGmail(email: string): boolean {
   return isValidText(email) && email.trim().toLowerCase().endsWith('@gmail.com');
 }
 
+export function isValidPhone(phone: string): boolean {
+  return isValidText(phone) && /^\d{10}$/.test(phone);
+}
+
 export function isValidImage(imageFile: File | null): boolean {
   const allowedMimeTypes = ['image/jpeg'];
   const maxSizeInBytes = 5 * 1024 * 1024; // 5MB

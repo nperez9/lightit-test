@@ -8,6 +8,7 @@ export interface ImagePickerProps {
   errorMessage?: string;
 }
 
+// TODO implement drag and drop
 export const ImagePicker: React.FC<ImagePickerProps> = ({ label, name, errorMessage }) => {
   const [pickedImage, setImagePicked] = useState<string | null>(null);
   const imageInputRef = useRef<HTMLInputElement>(null);

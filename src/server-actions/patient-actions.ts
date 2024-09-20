@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 
 import { SavePatient } from '@/services/patients.service';
 import { Patient } from '@/types/patient';
-import { isValidText, isValidImage, isOnlyText, isGmail } from '@/utils/validations';
+import { isValidText, isValidImage, isOnlyText, isGmail, isValidPhone } from '@/utils/validations';
 import { NotifyEmail } from '@/services/notifications.service';
 
 export interface PatientFormState {
@@ -12,6 +12,8 @@ export interface PatientFormState {
   phone?: string;
   email?: string;
   document_image?: string;
+  success?: boolean;
+  formError?: string;
 }
 
 // TODO: implmente S3 bucket for images
@@ -31,8 +33,8 @@ export async function savePatientAction(prevState: PatientFormState, formData: F
     formState.email = 'Email must be a gmail account';
   }
 
-  if (!isValidText(patient.phone)) {
-    formState.phone = 'Phone cannot be empty';
+  if (!isValidPhone(patient.phone)) {
+    formState.phone = 'Phone cannot be empty and must be numbers';
   }
 
   if (!isValidImage(patient.document_image)) {
@@ -43,9 +45,15 @@ export async function savePatientAction(prevState: PatientFormState, formData: F
     return formState;
   }
 
-  await SavePatient(patient);
+  try {
+    await SavePatient(patient);
+    revalidatePath('/patients');
+  } catch (error) {
+    formState.formError = 'Error saving patient | Vercel is having issues with SQLite';
+    formState.success = false;
+    return formState;
+  }
+
   NotifyEmail(patient.email, patient.name);
-  // TODO: Implement SMS notification
-  revalidatePath('/patients');
   return redirect('/patients');
 }
