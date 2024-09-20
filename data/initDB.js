@@ -1,5 +1,5 @@
 const sql = require('better-sqlite3');
-const db = sql('light.db');
+const db = sql('database/light.db');
 
 const dummyPatients = [
   {
@@ -7,6 +7,12 @@ const dummyPatients = [
     email: 'niclasfulkrug@gmail.com',
     phone: '+32 12345678',
     document_image: '/images/documents/fullkrug.png',
+  },
+  {
+    name: 'German Hersmmansen',
+    email: 'brendford_hermmmansen@gmail.com',
+    phone: '+22 334341335',
+    document_image: '/images/documents/passport.jpg',
   },
 ];
 

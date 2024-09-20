@@ -1,1 +1,1 @@
-export const DATABASE_NAME = 'light.db';
+export const DATABASE_NAME = 'database/light.db';
